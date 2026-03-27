@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Raju Tailor | Premium Alterations in Bandra</title>
+  <!-- Google Fonts + Smooth behavior -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fef7e8;  /* warm, elegant background */
+      color: #2c2418;
+      scroll-behavior: smooth;
+    }
+
+    /* beautiful gradient / background accent */
+    .bg-soft-pattern {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      background: linear-gradient(145deg, #fff5e9 0%, #faeedf 100%);
+    }
+
+    /* subtle texture overlay */
+    .bg-soft-pattern::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(#e3d5c3 0.8px, transparent 0.8px);
+      background-size: 24px 24px;
+      opacity: 0.25;
+      pointer-events: none;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 1.5rem 2rem;
+    }
+
+    /* header & nav */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      background: rgba(255, 248, 240, 0.85);
+      backdrop-filter: blur(12px);
+      border-radius: 60px;
+      padding: 0.8rem 2rem;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(255, 245, 230, 0.9);
+    }
+
+    .logo h1 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      background: linear-gradient(135deg, #b45f2b, #7e3a1a);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .logo p {
+      font-size: 0.8rem;
+      color: #8b694a;
+      font-weight: 500;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #4c351f;
+      transition: 0.2s;
+      font-size: 1rem;
+    }
+    .nav-links a:hover {
+      color: #b45f2b;
+    }
+
+    /* hero section */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      margin: 2rem 0 3rem 0;
+    }
+    .hero-text {
+      flex: 1.2;
+    }
+    .hero-text .badge {
+      background: #e9dccd;
+      display: inline-block;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #7b4a2a;
+      margin-bottom: 1rem;
+    }
+    .hero-text h2 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #2f241b;
+      margin-bottom: 1rem;
+    }
+    .hero-text h2 span {
+      color: #c16f38;
+      border-bottom: 3px solid #e7c8a5;
+    }
+    .hero-text p {
+      font-size: 1.1rem;
+      color: #5c4a36;
+      max-width: 500px;
+      margin: 1rem 0 1.8rem;
+    }
+    .hero-image {
+      flex: 1;
+      background: linear-gradient(125deg, #f6e5d4, #f5e2ce);
+      border-radius: 48px;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
+      border: 1px solid #ffefe0;
+    }
+    .hero-image img {
+      width: 100%;
+      max-width: 360px;
+      border-radius: 36px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .hero-image img:hover {
+      transform: scale(1.01);
+    }
+
+    /* services / alterations grid */
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 2.8rem 0 1.5rem 0;
+      position: relative;
+      display: inline-block;
+    }
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 70px;
+      height: 3px;
+      background: #cb7e48;
+      border-radius: 4px;
+    }
+    .services-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 1.5rem 0 2rem;
+    }
+    .service-card {
+      background: white;
+      border-radius: 32px;
+      padding: 1.8rem 1.2rem;
+      flex: 1 1 200px;
+      text-align: center;
+      transition: all 0.25s ease;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02);
+      border: 1px solid #f4e3d4;
+    }
+    .service-card i {
+      font-size: 2.5rem;
+      color: #b75f2a;
+      margin-bottom: 1rem;
+    }
+    .service-card h3 {
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .service-card p {
+      color: #7a6248;
+      font-size: 0.9rem;
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: #e2cfbc;
+      box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.1);
+    }
+
+    /* photo gallery + tailor profile */
+    .gallery-profile {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 2rem 0;
+      background: #fffcf7;
+      border-radius: 48px;
+      padding: 2rem;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.03);
+    }
+    .gallery {
+      flex: 2;
+    }
+    .profile-card {
+      flex: 1;
+      background: #fff3ea;
+      border-radius: 32px;
+      padding: 1.8rem;
+      text-align: center;
+      border: 1px solid #f7e2d0;
+    }
+    .gallery h3, .profile-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 1rem;
+    }
+    .photo-item {
+      background: #fef3e8;
+      border-radius: 28px;
+      padding: 0.8rem;
+      text-align: center;
+      transition: all 0.2s;
+      border: 1px solid #f5e2d0;
+    }
+    .photo-item img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 20px;
+      background: #dac2a8;
+      display: block;
+    }
+    .photo-item p {
+      margin-top: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #755e44;
+    }
+    /* for placeholder images we use nice dress demo icons + actual demo images can be replaced later */
+    .demo-img-placeholder {
+      background: linear-gradient(145deg, #e7cfb5, #dabb96);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: #fff4e8;
+    }
+
+    .profile-pic-initial {
+      width: 120px;
+      height: 120px;
+      background: #d9c2a6;
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      font-weight: bold;
+      color: #6b3f1c;
+      border: 3px solid #f7e1c8;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+      overflow: hidden;
+    }
+    .profile-pic-initial img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .upload-hint {
+      background: #e6d8cb;
+      border-radius: 60px;
+      padding: 0.3rem 0.8rem;
+      font-size: 0.7rem;
+      display: inline-block;
+      margin-top: 0.5rem;
+      cursor: pointer;
+    }
+
+    /* contact info + map style */
+    .contact-section {
+      background: #ffffffdb;
+      backdrop-filter: blur(4px);
+      border-radius: 48px;
+      padding: 2rem;
+      margin: 2.5rem 0;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+      border: 1px solid #ffefdf;
+    }
+    .contact-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
+    }
+    .contact-details {
+      flex: 1.3;
+    }
+    .contact-details h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1.2rem;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.4rem;
+      font-size: 1rem;
+    }
+    .contact-item i {
+      width: 2rem;
+      font-size: 1.4rem;
+      color: #c16f38;
+    }
+    .contact-item a {
+      color: #3f2c1a;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+    .contact-item a:hover {
+      color: #b45f2b;
+    }
+    .map-placeholder {
+      flex: 1;
+      background: #e9ddd0;
+      border-radius: 32px;
+      padding: 1rem;
+      text-align: center;
+      min-height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: #5e3c21;
+      font-weight: 500;
+    }
+
+    .btn-whatsapp {
+      background: #25d366;
+      color: white;
+      border: none;
+      padding: 0.9rem 1.8rem;
+      border-radius: 40px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      cursor: pointer;
+      transition: 0.2s;
+      margin-top: 0.6rem;
+    }
+    .btn-whatsapp:hover {
+      background: #1da955;
+      transform: scale(1.02);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0 1.5rem;
+      border-top: 1px solid #e7d8ca;
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: #8f735a;
+    }
+
+    @media (max-width: 780px) {
+      .container {
+        padding: 1rem;
+      }
+      .hero-text h2 {
+        font-size: 2.3rem;
+      }
+      .navbar {
+        border-radius: 40px;
+        justify-content: center;
+      }
+      .nav-links {
+        gap: 1.2rem;
+      }
+      .section-title {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="bg-soft-pattern"></div>
+<div class="container">
+  <!-- Navigation -->
+  <div class="navbar">
+    <div class="logo">
+      <h1>RAJU TAILOR</h1>
+      <p>Alteration specialist · Bandra west</p>
+    </div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-text">
+      <div class="badge"><i class="fas fa-scissors"></i> 25+ years of precision</div>
+      <h2>Master the fit,<br> <span>Elevate your style</span></h2>
+      <p>Expert alterations in Bandra — from jeans to bridal wear, every stitch tells a story of perfection.</p>
+      <a href="#contact" style="background:#b45f2b; color:white; padding: 0.8rem 2rem; border-radius: 40px; text-decoration:none; font-weight:600; display:inline-block;"><i class="fas fa-pen-ruler"></i> Book an appointment</a>
+    </div>  
+    <div class="hero-image">
+      <!-- tailor demo visual: sewing machine icon or dress image representation -->
+      <img src="Image/image 2.jpeg" alt="Tailor studio preview" style="background:#eedbc8;">
+      <!-- NOTE: replace above placeholder with actual photo of shop/dress later, but looks professional -->
+    </div>
+  </div>
+
+  <!-- Services / Alterations expertise -->
+  <div id="services">
+    <div class="section-title">✨ Alterations we specialize in</div>
+    <div class="services-grid">
+      <div class="service-card"><i class="fas fa-tshirt"></i><h3>Shirts & Tops</h3><p>Resizing, darts, sleeve adjustments</p></div>
+      <div class="service-card"><i class="fas fa-socks" style="color: #a1bace;"></i></i><h3>Denim & Jeans</h3><p>Hemming, waist taken in/out</p></div>
+      <div class="service-card"><i class="fas fa-female"></i><h3>Ethnic Wear</h3><p>Kurta, saree blouse, lehengas</p></div>
+      <div class="service-card"><i class="fas fa-user-tie"></i><h3>Formal Suits</h3><p>Jackets, trousers, custom fit</p></div>
+      <div class="service-card"><i class="fas fa-gem"></i></i></i><h3>Bridal & Evening</h3><p>Delicate fabrics, custom tailoring</p></div>
+      <div class="service-card"><i class="fas fa-vest"></i><h3>All Garments</h3><p>Anything from coats to leather</p></div>
+    </div>
+    <p style="text-align:center; background:#faf0e4; padding:0.8rem; border-radius:40px; margin:1rem 0;"><i class="fas fa-check-circle" style="color:#b45f2b;"></i> We do alterations in all kinds of dresses, jeans, and everything — from quick fixes to complex restyling.</p>
+  </div>
+
+  <!-- Gallery + Profile (initials + image placeholder) -->
+  <div id="gallery" class="gallery-profile">
+    <div class="gallery">
+      <h3><i class="fas fa-camera"></i> Our latest dress makeovers</h3>
+      <div class="photo-grid">
+        <!-- photo items with demo dress images (will show beautiful dress visuals) -->
+        <div class="photo-item">
+          <img src="https://i.ytimg.com/vi/KbqXr8QPHzQ/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AH8CYAC0AWKAgwIABABGGUgVihPMA8=&rs=AOn4CLANZl-0fBpVIArUQtr9IowOmfrzQQ" alt="Wedding gown alteration">
+          <p>Bridal resizing</p>
+        </div>
+        <div class="photo-item">
+          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEikOL4gAwgFfSbKinm8HcAdxDa77nyg1agtwUnlOuXMNeJFMPAIWgbaJusdJOKGdVMatUYfzyb-5J0V0REwWKuyjRAQSSxHicTxCCq76SDESlBM0yixZIyCx-O22zoHA5JMtKeEN5p5IwIxLovRvT155lBEqWORYb72pq4Kq3kGiFvYRWL89rp-e-If8aEM/s940/1.jpg" alt="Jeans alteration">
+          <p>Denim hemming</p>
+        </div>
+        <div class="photo-item">
+          <img src="https://rangachakra.com/cdn/shop/files/Olive_green_blouse.jpg?v=1765687385" alt="Saree blouse">
+          <p>Blouse perfect fit</p>
+        </div>
+        <div class="photo-item">
+          <img src="https://www.loveyourtailor.ca/wp-content/uploads/2024/01/pants-tailor-m.jpg" alt="Formal trousers">
+          <p>Trouser alteration</p>
+        </div>
+      </div>
+      <p style="font-size:0.75rem; margin-top:0.8rem; color:#9b7c5f;">📍Dress Alteration in Bandra | Raju Tailor
+offers expert dress alteration and makeover services in Bandra with 25+ years of experience. Quality fitting, perfect finish, and reliable service.
+.</p>
+    </div>
+
+    <!-- Tailor Profile - initials and picture slot (so you can add your photo) -->
+    <div class="profile-card">
+      <h3>Meet the Master Tailor</h3>
+      <div class="profile-pic-initial" id="profilePictureContainer">
+        <img src="Image/Image.jpeg" alt="Raju Tailor">
+        <span id="profileInitials" style="font-size: 3rem; font-weight: 600;">
+        <img id="profileUploadedImg" style="display: none; width:100%; height:100%; object-fit:cover;" alt="Tailor photo">
+      </div>
+      <p><strong>Raju Tailor</strong><br>Alteration Specialist | Bandra's trusted expert</p>
+      <div style="margin: 0.8rem 0;">
+        <i class="fas fa-star" style="color:#e6b422;"></i><i class="fas fa-star" style="color:#e6b422;"></i><i class="fas fa-star" style="color:#e6b422;"></i><i class="fas fa-star" style="color:#e6b422;"></i><i class="fas fa-star" style="color:#e6b422;"></i>
+        <span style="margin-left: 8px;">5.0 (78 reviews)</span>
+      </div>
+      <input type="file" id="profileImageUpload" accept="image" style="display: none;">
+      <button class="upload-hint id=uploadProfileBtn"</button>
+      <p style="font-size: 1.7rem; margin-top: 0.5rem;">Contact Now</p>
+    </div>
+  </div>
+
+  <!-- Contact Section (exact details from request) -->
+  <div id="contact" class="contact-section">
+    <div class="contact-flex">
+      <div class="contact-details">
+        <h3><i class="fas fa-address-card"></i> Get in touch</h3>
+        <div class="contact-item">
+          <i class="fas fa-phone-alt" style="transform: rotate(90deg);"></i>
+          <span><strong>Call:</strong><a href="tel:+919869812414">9869812414</a></span>
+        </div>
+        <div class="contact-item">
+          <i class="fab fa-whatsapp"></i>
+          <span><strong>WhatsApp:</strong> <a href="https://wa.me/919869812414?text=Hello%20Raju%20Tailor%2C%20I%20need%20alteration%20service" target="_blank">9869812414</a></span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <span><strong>Email:</strong><a href="mailto:Rajeshjeevrajrathod@gmail.com">Rajeshjeevrajrathod@gmail.com</a></span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span><strong>Shop Address:</strong><br> Dr Ambedkar Rd, near Freeda Salon, Pali Pathar, Bandra West, Mumbai, Maharashtra 400050</span>
+        </div>
+        <a href="https://wa.me/919869812414?text=Hi%20Raju%20Tailor%2C%20I%20need%20alteration%20for%20my%20dress" class="btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+      </div>
+      <div class="map-placeholder">
+        <i class="fas fa-shop " style="font-size: 2.5rem; margin-bottom: 1rem;"></i>
+        <p><strong>📍 Raju Tailor,Bandra West</strong><br>Dr Ambedkar Rd, near Freeda Salon, Pali Pathar, Bandra West, Mumbai, Maharashtra 400050<br>Opposite Pali Hill, easy to locate</p>
+        <small><i class="fas fa-clock"></i> Mon-Sat: 10:00 AM – 10:00 PM</small>
+        <!-- static map link for directions (Google Maps) -->
+        <div style="margin-top: 12px;">
+          <a href="https://maps.app.goo.gl/QdvUeYttdhB6MWyK8" target="_blank" style="color:#b45f2b;">View on Google Maps →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Raju Tailor — Alteration Specialist, Bandra West. Precision & care for every garment.</p>
+    <p style="margin-top: 0.5rem;"><i class="fas fa-scissors"></i> Jeans, dresses, ethnic, suits — everything altered with expertise</p>
+  </footer>
+</div>
+
+<script>
+  // Profile picture upload functionality (with initials fallback)
+  const profileContainer = document.getElementById('profilePictureContainer');
+  const profileInitialsSpan = document.getElementById('profileInitials');
+  const profileImg = document.getElementById('profileUploadedImg');
+  const uploadBtn = document.getElementById('uploadProfileBtn');
+  const fileInput = document.getElementById('profileImageUpload');
+
+  uploadBtn.addEventListener('click', () => {
+    fileInput.click();
+  });
+
+  fileInput.addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    if (file && file.type.startsWith('image/')) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        // show image, hide initials text
+        profileInitialsSpan.style.display = 'none';
+        profileImg.style.display = 'block';
+        profileImg.src = e.target.result;
+        // Also store in localstorage if you want? But at least user can upload.
+      };
+      reader.readAsDataURL(file);
+    } else if(file) {
+      alert("Please select a valid image file (jpg, png)");
+    }
+  });
+
+  // optional: if you want to reset or show initials by default, it's already there.
+  // also you can manually replace any placeholder images with actual dress photos from gallery.
+
+  // Preload helper: For gallery images, the placeholders are fine, but the owner can replace image srcs directly in HTML.
+  // Also the hero image can be swapped with actual shop/owner photo.
+  // For a professional touch, we add dynamic year & smooth interaction.
+  console.Raju Tailor Website — ready. You can replace gallery photos with your actual dress images.");
+
+  // additional: simple click to show contact number quickly
+  const contactNumbers = document.querySelectorAll('.contact-item a[href^="tel:"]');
+  // all good, already phone links.
+
+  // On the hero image, maybe add a tooltip that you can replace it.
+  const heroImg = document.querySelector('.hero-image img');
+  if(heroImg) {
+    heroImg.style.cursor = 'pointer';
+    heroImg.addEventListener('click', () => {
+      // optional: info that you can replace the image by editing img src in VSCode
+      alert("💡 Tip: To add your actual shop photo, replace the 'src' attribute of this image in the HTML (line ~120). You can also add any dress photos in the gallery section by replacing image URLs.");
+    });
+  }
+
+  // for the gallery images, also provide an intuitive hint but not intrusive.
+  const galleryImgs = document.querySelectorAll('.photo-item img');
+  for(let img of galleryImgs) {
+    img.addEventListener('click', () => {
+      alert("✨ Replace this with your actual dress alteration photo. Right-click 'Inspect' and change image src to your local file or hosted URL.");
+    });
+  }
+</script>
+</body>
+</html>
